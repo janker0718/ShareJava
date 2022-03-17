@@ -10,16 +10,16 @@ npm run build
 cd docs/.vuepress/dist
 
 # deploy to github pages
-echo 'b.xugaoyi.com' > CNAME
+#echo 'share-java.com' > CNAME
 
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
-  githubUrl=git@github.com:xugaoyi/vuepress-theme-vdoing.git
+  githubUrl=git@github.com:janker0718/ShareJava.git
 else
   msg='来自github actions的自动部署'
-  githubUrl=https://xugaoyi:${GITHUB_TOKEN}@github.com/xugaoyi/vuepress-theme-vdoing.git
-  git config --global user.name "xugaoyi"
-  git config --global user.email "894072666@qq.com"
+  githubUrl=https://janker0718:${GITHUB_TOKEN}@github.com/janker0718/ShareJava.git
+  git config --global user.name "janker0718"
+  git config --global user.email "690864766@qq.com@qq.com"
 fi
 git init
 git add -A
