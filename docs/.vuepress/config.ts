@@ -27,16 +27,17 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     nav: [
       { text: '首页', link: '/' },
       {
-        text: '爪哇岛',
+        text: '面试',
         link: '/interview/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
           // 说明：以下所有link的值只是在相应md文件头部定义的永久链接（不是什么特殊编码）。另外，注意结尾是有斜杠的
           {
-            text: '测试文章',
-            items: [
-              { text: '测试文章1', link: '/pages/test1/' },
-              { text: '测试文章2', link: '/pages/test2/' },
-            ],
+            text: '八股文',
+            link: '/java/collection/',
+          },
+          {
+            text: '面试小册子',
+            link: '/interview/demo/',
           }
         ],
       },
@@ -62,7 +63,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
     author: {
-      name: 'xugaoyi', // 必需
+      name: 'janker0718', // 必需
       link: 'https://github.com/janker0718', // 可选的
     },
 
@@ -94,7 +95,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     footer: {
       createYear: 2022, // 博客创建年份
       copyrightInfo:
-        'Evan Xu | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签或换行标签</br>
+        'janker | <a href="https://github.com/janker0718/ShareJava/blob/main/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签或换行标签</br>
     },
 
     // 自定义hmtl(广告)模块

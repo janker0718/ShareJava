@@ -10,7 +10,7 @@ npm run build
 cd docs/.vuepress/dist
 
 # deploy to github pages
-#echo 'share-java.com' > CNAME
+#echo 'cd' > CNAME
 
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='deploy'
