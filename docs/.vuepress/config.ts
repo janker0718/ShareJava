@@ -95,7 +95,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     footer: {
       createYear: 2022, // 博客创建年份
       copyrightInfo:
-        'janker | <a href="https://github.com/janker0718/ShareJava/blob/main/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签或换行标签</br>
+        'janker | <a href="https://github.com/janker0718/ShareJava/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息，支持a标签或换行标签</br>
     },
 
     // 自定义hmtl(广告)模块
@@ -109,7 +109,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       'meta',
       {
         name: 'keywords',
-        content: 'SpringBoot,SpringCloud,Dubbo,中间件,技术文档,学习,面试,git,github,markdown',
+        content: 'SpringBoot,SpringCloud,Dubbo,中间件,技术文档,实战项目,面试,git,github,markdown',
       },
     ],
     // ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc' }], // 百度统计的站长验证（你可以去掉）
