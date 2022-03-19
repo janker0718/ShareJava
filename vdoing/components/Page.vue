@@ -118,6 +118,10 @@ export default {
 .page
   padding-bottom 2rem
   display block
+  .theme-default-content
+    margin-top 14px
+    margin-left 12px
+background #fff
   @media (max-width $MQMobile)
     padding-top $navbarHeight
   @media (min-width $MQMobile)
@@ -169,6 +173,61 @@ export default {
 .theme-mode-dark
   .theme-vdoing-wrapper
     --linesColor rgba(125, 125, 125, 0.05)
+.theme-default-content:not(.custom) > h1:first-child
+  margin-top -4.5rem
+
+@media (max-width: $MQNarrow)
+  h1
+    font-size 1.6rem
+  h2
+    font-size 1.5rem
+  h3
+    font-size 1.3rem
+  .page
+    font-size 0.9rem
+    padding-right 3.5rem
+    padding-bottom 1rem
+    display block
+    padding-top 55px
+    .theme-default-content
+      margin-top 0px
+      margin-left 0px
+  .page-edit
+    margin-left 0px
+  .page-contract
+    margin-left 0px
+  .page-nav
+    margin-left 0px
+  .page.withouttoc
+    padding-right: 55px;
+@media (max-width: $MQMobile)
+  .page
+    font-size 0.9rem
+    padding-right 0rem
+    margin: 0;
+    padding: 0;
+    padding-top: 3.5rem;
+    .theme-default-content
+      padding 1rem
+      overflow-x hidden
+  .page-contract
+    display block
+    padding 2rem
+    padding-top 0rem
+    overflow auto
+    .c-content
+      text-align center
+      width 99%
+  .page-edit
+    .edit-link
+      margin-bottom .5rem
+    .last-updated
+      font-size .8em
+      float none
+      text-align left
+  .page.withouttoc
+    padding-right: 0rem;
+
 /**
  * 右侧菜单的自适应
  */
@@ -204,4 +263,7 @@ export default {
   @media (min-width 1280px)
     .sidebar, .sidebar-button
       display none
+.page-contract
+  display none
+  background #fff
 </style>
