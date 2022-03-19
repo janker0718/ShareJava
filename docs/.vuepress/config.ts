@@ -122,6 +122,13 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     //     src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
     //   },
     // ], // 网站关联Google AdSense 与 html格式广告支持（你可以去掉）
+    ['script',
+      {
+        charset: 'utf-8',
+        async: 'async',
+        // src: 'https://code.jquery.com/jquery-3.5.1.min.js',
+        src: '/js/jquery.min.js',
+      }],
   ],
 
 
@@ -200,6 +207,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         },
       },
     ],
+    [
+      {globalUIComponents: ['LockArticle']}
+    ]
   ],
 
   markdown: {
