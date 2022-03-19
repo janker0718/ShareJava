@@ -9,7 +9,7 @@ tagline: 知其然，知其所以然，积跬步以至千里。
 
 features: # 可选的
   - title: 面试
-    details: 面试小册子、后端开发、框架源码解析
+    details: 面试小册子
     link: /interview/ # 可选
     imgUrl: /img/web.png # 可选
 

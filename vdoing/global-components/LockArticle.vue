@@ -63,7 +63,7 @@
                 return "need" === this.$page.frontmatter.lock;
             },
             articleObj: function () {
-                let $article = $('.theme-default-content');
+                let $article = $('.theme-vdoing-content');
                 if ($article.length <= 0) return null;
 
                 // 文章的实际高度
@@ -84,25 +84,26 @@
 
                 let token = t.getToken();
 
-                $.ajax({
-                    url: 'https://api.bugstack.cn/interfaces/BlogApi.php',
-                    type: "GET",
-                    dataType: "text",
-                    data: {
-                        token: token
-                    },
-                    success: function (data) {
-                        if (data === 'refuse') {
-                            t._lock(articleObj);
-                        } else {
-                            t._unlock(articleObj);
-                            t.setCookie("_unlock", "success", 1);
-                        }
-                    },
-                    error: function (data) {
-                        t._unlock(articleObj);
-                    }
-                })
+                // $.ajax({
+                //     url: 'api地址',
+                //     type: "GET",
+                //     dataType: "text",
+                //     data: {
+                //         token: token
+                //     },
+                //     success: function (data) {
+                //         if (data === 'refuse') {
+                //             t._lock(articleObj);
+                //         } else {
+                //             t._unlock(articleObj);
+                //             t.setCookie("_unlock", "success", 1);
+                //         }
+                //     },
+                //     error: function (data) {
+                //         t._unlock(articleObj);
+                //     }
+                // })
+              t._lock(articleObj);
 
             },
             _lock: function (articleObj) {
