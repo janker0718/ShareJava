@@ -42,6 +42,21 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         ],
       },
       {
+        text: '实战项目',
+        link: '/project/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
+        items: [
+          // 说明：以下所有link的值只是在相应md文件头部定义的永久链接（不是什么特殊编码）。另外，注意结尾是有斜杠的
+          {
+            text: 'JMall-基础版',
+            link: '/project/micro-base-start/',
+          },
+          {
+            text: 'JMall-加强版',
+            link: '/project/micro-senior-start/',
+          }
+        ],
+      },
+      {
         text: '索引',
         link: '/archives/',
         items: [
@@ -69,7 +84,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
-      avatar: 'https://cdn.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg',
+      avatar: 'https://cdn.jsdelivr.net/gh/janker0718/image_store/img/WechatIMG438.jpeg',
       name: '',
       slogan: '知其然，知其所以然。',
     },
@@ -99,7 +114,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     },
 
     // 自定义hmtl(广告)模块
-    // htmlModules
+    htmlModules
   },
 
   // 注入到页面<head>中的标签，格式[tagName, { attrName: attrValue }, innerHTML?]
