@@ -205,6 +205,7 @@ module.exports = {
                     },
                     {
                         text: 'Java',
+                        link: "/md/java/interview/book.md",
                         items: [
                             {
                                 text: '面经手册',
