@@ -1,33 +1,40 @@
 {
   "name": "ShareJava",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "deploy": "bash deploy.sh",
-    "editFm": "node utils/editFrontmatter.js",
-    "baiduPush": "node utils/baiduPush.js https://xugaoyi.com && bash baiduPush.sh",
-    "publish": "cd ./vdoing && npm publish && cd .. && yarn updateTheme",
-    "updateTheme": "yarn remove vuepress-theme-vdoing && rm -rf node_modules && yarn && yarn add vuepress-theme-vdoing -D"
+    "build": "vuepress build docs"
   },
-  "license": "MIT",
   "devDependencies": {
-    "dayjs": "^1.9.7",
-    "inquirer": "^7.1.0",
-    "json2yaml": "^1.1.0",
-    "vuepress": "1.9.5",
-    "vuepress-plugin-baidu-autopush": "^1.0.1",
-    "vuepress-plugin-baidu-tongji": "^1.0.1",
-    "vuepress-plugin-comment": "^0.7.3",
-    "vuepress-plugin-demo-block": "^0.7.2",
-    "vuepress-plugin-fulltext-search": "^2.2.1",
-    "vuepress-plugin-one-click-copy": "^1.0.2",
-    "vuepress-plugin-thirdparty-search": "^1.0.2",
-    "vuepress-plugin-zooming": "^1.1.7",
-    "vuepress-theme-vdoing": "^1.9.5",
-    "yamljs": "^0.3.0"
+    "@vuepress/plugin-back-to-top": "^1.8.2",
+    "@vuepress/plugin-google-analytics": "^1.8.2",
+    "@vuepress/plugin-medium-zoom": "^1.8.2",
+    "vuepress": "^1.8.2",
+    "vuepress-plugin-seo": "^0.1.4",
+    "vuepress-plugin-sitemap": "^2.3.1",
+    "vuepress-plugin-tags": "^1.0.2",
+    "watchpack": "^1.7.5",
+    "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "jquery": "^3.6.0"
+    "@maiscrm/vuepress-plugin-exportpdf": "^0.1.3",
+    "@vssue/api-github-v3": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8",
+    "@vuepress/core": "^1.8.2",
+    "browserslist": "^4.16.3",
+    "caniuse-lite": "^1.0.30001196",
+    "medium-zoom": "^1.0.6",
+    "puppeteer": "^13.5.1",
+    "puppeteer-chromium-resolver": "^12.0.0",
+    "puppeteer-cn": "^0.1.8",
+    "screenfull": "^5.1.0",
+    "vuepress-plugin-baidu-autopush": "^1.0.1",
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "vuepress-plugin-comment": "^0.7.3",
+    "vuepress-plugin-copyright": "^1.0.2",
+    "vuepress-plugin-export": "^0.2.0",
+    "vuepress-plugin-img-lazy": "^1.0.4",
+    "vuepress-plugin-table-of-contents": "^1.1.7"
   }
 }
