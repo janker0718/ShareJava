@@ -1,15 +1,15 @@
 ---
 home: true
-heroImage: /images/system/blog-03.png
+heroImage: https://cdn.jsdelivr.net/gh/janker0718/image_store@master/img/20220328012329.png
 actionText: 快速开始 →
 actionLink: /md/other/guide-to-reading.md
 features:
-- title: 标题1
-  details: 描述1
-- title: 标题2
-  details: 描述2
-- title: 标题3
-  details: 描述3
+- title: 构建知识体系
+  details: 构建系统的知识体系，让自己更全面
+- title: 自我驱动学习
+  details: 学习来源于自我驱动，持续学习
+- title: 沉淀、输出
+  details: 沉淀学习成果，让学习成果可视化
 ---
 
 <div style="text-align:center;padding:30px 15px;">
