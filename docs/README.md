@@ -9,7 +9,7 @@ features:
 - title: 自我驱动学习
   details: 学习来源于自我驱动，持续学习
 - title: 沉淀、输出
-  details: 沉淀学习成果，让学习成果可视化
+  details: 沉淀学习成果，让学习过程可视化
 ---
 
 <div style="text-align:center;padding:30px 15px;">
