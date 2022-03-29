@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "vuepress dev docs",
-    "build": "vuepress build docs"
+    "build": "vuepress build docs",
+    "deploy": "bash deploy.sh"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.2",
@@ -26,8 +27,6 @@
     "caniuse-lite": "^1.0.30001196",
     "medium-zoom": "^1.0.6",
     "puppeteer": "^13.5.1",
-    "puppeteer-chromium-resolver": "^12.0.0",
-    "puppeteer-cn": "^0.1.8",
     "screenfull": "^5.1.0",
     "vuepress-plugin-baidu-autopush": "^1.0.1",
     "vuepress-plugin-code-copy": "^1.0.6",
