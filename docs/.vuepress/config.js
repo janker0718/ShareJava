@@ -214,6 +214,16 @@ module.exports = {
                         ]
                     },
                     {
+                        text: '方法',
+                        link: '/md/dev-spec/pattern/1_overview.md',
+                        items: [
+                            {
+                                text: '设计模式',
+                                link: '/md/dev-spec/pattern/1_overview.md'
+                            }
+                        ]
+                    },
+                    {
                         text: '关于',
                         link: '/md/about/me/about-me.md'
                     },
@@ -226,6 +236,7 @@ module.exports = {
                     "/md/other/": genBarOther(),
                     "/md/java/interview/":getJavaInterview(),
                     "/md/about/":getBarAbout(),
+                    "/md/dev-spec/":getDevSpec(),
                 }
             }
         }
@@ -287,6 +298,20 @@ function getBarAbout(){
             sidebarDepth: 0,
             children: [
                 'book/programming-ebook.md'
+            ]
+        }
+    ]
+}
+
+function getDevSpec(){
+    return [
+        {
+            title: "设计模式",
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+                "pattern/1_overview.md",
+                "pattern/2_singleton.md",
             ]
         }
     ]
