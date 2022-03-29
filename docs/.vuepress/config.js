@@ -82,7 +82,7 @@ module.exports = {
               var _hmt = _hmt || [];
               (function() {
                 var hm = document.createElement("script");
-                hm.src = "https://hm.baidu.com/hm.js?0b31b4c146bf7126aed5009e1a4a11c8";
+                hm.src = "https://hm.baidu.com/hm.js?e68b39347be2339192f80082c317901e";
                 var s = document.getElementsByTagName("script")[0];
                 s.parentNode.insertBefore(hm, s);
               })();

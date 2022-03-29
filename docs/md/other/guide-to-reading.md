@@ -21,4 +21,4 @@ excerpt: 面试小册，着急面试，但是来不及整理，就来看看这�
 ## Java
 - [面试相关](https://www.share-java.com/md/java/interview/book.html)
 ## 关于
-- 关于我、网站[](https://www.share-java.com/md/about/me/about-me.html)
+- [关于我、网站](https://www.share-java.com/md/about/me/about-me.html)
