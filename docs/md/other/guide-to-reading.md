@@ -4,10 +4,10 @@ category: 导读
 title: 导读
 tagline: by janker
 tag: [java]
-excerpt: 面试小册，着急面试，但是来不及整理，就来看看这里我整理的吧。
+excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
 ---
 
-# 面试 - 小册
+# 阅读指南
 
 ::: tip To 我
 知其然，知其所以然，忙时做业绩，闲时修内功。  by janker
