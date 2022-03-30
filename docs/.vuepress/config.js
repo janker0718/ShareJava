@@ -312,6 +312,8 @@ function getDevSpec(){
             children: [
                 "pattern/1_overview.md",
                 "pattern/2_singleton.md",
+                "pattern/3_factory.md",
+                "pattern/4_abstract-factory.md",
             ]
         }
     ]
