@@ -122,11 +122,11 @@ module.exports = {
         //     }
         // }],
         // see: https://vuepress.github.io/zh/plugins/copyright/#%E5%AE%89%E8%A3%85
-        // ['copyright', {
-        //     noCopy: false, // 允许复制内容
-        //     minLength: 100, // 如果长度超过 100 个字符
-        //     authorName: "janker"
-        // }],
+        ['copyright', {
+            noCopy: false, // 允许复制内容
+            minLength: 30, // 如果长度超过 100 个字符
+            authorName: "janker",
+        }],
         // see: https://github.com/ekoeryanto/vuepress-plugin-sitemap
         // ['sitemap', {
         //     hostname: 'https://www.share-java.com'
@@ -313,7 +313,10 @@ function getDevSpec(){
                 "pattern/1_overview.md",
                 "pattern/2_singleton.md",
                 "pattern/3_factory.md",
-                "pattern/4_abstract-factory.md",
+                "pattern/4_abstract_factory.md",
+                "pattern/5_factory_method.md",
+                "pattern/6_builder.md",
+                "pattern/7_prototype.md",
             ]
         }
     ]
