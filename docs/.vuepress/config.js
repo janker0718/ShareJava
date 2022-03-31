@@ -128,9 +128,10 @@ module.exports = {
             authorName: "janker",
         }],
         // see: https://github.com/ekoeryanto/vuepress-plugin-sitemap
-        // ['sitemap', {
-        //     hostname: 'https://www.share-java.com'
-        // }],
+        ['sitemap', {
+            hostname: 'https://www.share-java.com',
+            exclude: ["/404.html"]
+        }],
         // see: https://github.com/IOriens/vuepress-plugin-baidu-autopush
         ['vuepress-plugin-baidu-autopush', {}],
         ['vuepress-plugin-comment', // 评论
