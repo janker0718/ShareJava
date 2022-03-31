@@ -1,2 +1,2 @@
-Sitemap: https://wwww.share-java.com/sitemap.xml
+Sitemap: https://www.share-java.com/sitemap.xml
 User-agent: *
