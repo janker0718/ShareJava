@@ -318,6 +318,11 @@ function getDevSpec(){
                 "pattern/5_factory_method.md",
                 "pattern/6_builder.md",
                 "pattern/7_prototype.md",
+                "pattern/8_adapter.md",
+                "pattern/9_bridge.md",
+                "pattern/10_filter.md",
+                "pattern/11_composite.md",
+                "pattern/12_decorator.md",
             ]
         }
     ]

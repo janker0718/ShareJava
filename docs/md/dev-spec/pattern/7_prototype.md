@@ -1,13 +1,13 @@
 ---
 layout: post
 category: 设计模式
-title: 创建型 - 原型模式（`Prototype Pattern`）
+title: 创建型 - 原型模式（Prototype Pattern）
 tagline: by janker
 tag: [设计模式]
 excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
 --- 
 
-# 创建型 - 原型模式（`Prototype Pattern`）
+# 创建型 - 原型模式（Prototype Pattern）
 
 > 原型模式（`Prototype Pattern`）是用于创建重复的对象，同时又能保证性能。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。
 

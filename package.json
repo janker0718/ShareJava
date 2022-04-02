@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "bash deploy.sh"
+    "deploy": "bash deploy.sh",
+    "vuepress-sitemap": "vuepress-sitemap -H https://www.share-java.com -d docs/.vuepress/.dist"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.2",

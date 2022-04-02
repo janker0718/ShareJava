@@ -1,7 +1,7 @@
 ---
 layout: post
 category: 设计模式
-title: 创建型 - 建造者模式（`Builder Pattern`）
+title: 创建型 - 建造者模式（Builder Pattern）
 tagline: by janker
 tag: [设计模式]
 excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
