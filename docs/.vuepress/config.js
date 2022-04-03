@@ -340,6 +340,12 @@ function getDevSpec(){
                 "pattern/27_visitor.md",
                 "pattern/28_mvc.md",
                 "pattern/29_business_delegate.md",
+                "pattern/30_composite_entity.md",
+                "pattern/31_data_access_object.md",
+                "pattern/32_front_controller.md",
+                "pattern/33_intercepting_filter.md",
+                "pattern/34_service_iocator.md",
+                "pattern/35_transfer_object.md",
             ]
         }
     ]
