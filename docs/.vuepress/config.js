@@ -323,6 +323,23 @@ function getDevSpec(){
                 "pattern/10_filter.md",
                 "pattern/11_composite.md",
                 "pattern/12_decorator.md",
+                "pattern/13_facade.md",
+                "pattern/14_flyweight.md",
+                "pattern/15_proxy.md",
+                "pattern/16_chain_of_responsibility.md",
+                "pattern/17_command.md",
+                "pattern/18_interpreter.md",
+                "pattern/19_Iterator.md",
+                "pattern/20_mediator.md",
+                "pattern/21.memento.md",
+                "pattern/22_observer.md",
+                "pattern/23_state.md",
+                "pattern/24_null_object.md",
+                "pattern/25_strategy.md",
+                "pattern/26_template.md",
+                "pattern/27_visitor.md",
+                "pattern/28_mvc.md",
+                "pattern/29_business_delegate.md",
             ]
         }
     ]
