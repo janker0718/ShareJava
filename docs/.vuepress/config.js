@@ -215,7 +215,7 @@ module.exports = {
                         ]
                     },
                     {
-                        text: '方法',
+                        text: '方法|规范',
                         link: '/md/dev-spec/pattern/1_overview.md',
                         items: [
                             {
