@@ -221,6 +221,10 @@ module.exports = {
                             {
                                 text: '设计模式',
                                 link: '/md/dev-spec/pattern/1_overview.md'
+                            },
+                            {
+                                text: '阿里开发规范',
+                                link: '/md/dev-spec/code-style/alibaba_code_guide.md'
                             }
                         ]
                     },
@@ -346,6 +350,14 @@ function getDevSpec(){
                 "pattern/33_intercepting_filter.md",
                 "pattern/34_service_iocator.md",
                 "pattern/35_transfer_object.md",
+            ]
+        },
+        {
+            title: "阿里开发规范",
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+                "code-style/alibaba_code_guide.md"
             ]
         }
     ]
