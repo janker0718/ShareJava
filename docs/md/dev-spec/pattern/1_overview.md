@@ -43,6 +43,7 @@ excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @ja
 - 单例模式（`Singleton Pattern`）
 - 工厂模式（`Factory Pattern`）
 - 抽象工厂模式（`Abstract Factory Pattern`）
+- 工厂方法模式（`Factory Method Pattern`）
 - 建造者模式（`Builder Pattern`）
 - 原型模式（`Prototype Pattern`）
 
@@ -52,7 +53,7 @@ excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @ja
 
 - 适配器模式（`Adapter Pattern`）
 - 桥接模式（`Bridge Pattern`）
-- 过滤器模式（`Filter、Criteria Pattern`）
+- ~~过滤器模式（`Filter、Criteria Pattern`）~~
 - 组合模式（`Composite Pattern`）
 - 装饰器模式（`Decorator Pattern`）
 - 外观模式（`Facade Pattern`）
