@@ -22,7 +22,6 @@
         class="last-updated"
         v-if="lastUpdated"
       >
-        <span class="prefix">{{ lastUpdatedText }}: </span>
         <span class="time">{{ lastUpdated }}</span>
       </div>
     </footer>
@@ -75,16 +74,10 @@ export default {
     },
 
     lastUpdated () {
-      if(this.$page.lastUpdated){
-        return this.$page.lastUpdated.split(" ")[0]
-      }
       return this.$page.lastUpdated
     },
 
     lastUpdatedText () {
-      if (typeof this.$themeLocaleConfig.lastUpdated === 'string') {
-        return this.$themeLocaleConfig.lastUpdated
-      }
       if (typeof this.$site.themeConfig.lastUpdated === 'string') {
         return this.$site.themeConfig.lastUpdated
       }
