@@ -37,7 +37,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ALIYUN_SERVER_ACCESS_TOKEN }}
           ARGS: "-avzr --delete"
-          SOURCE: "build/"
+          SOURCE: "docs/.vuepress/.dist/"
           REMOTE_HOST: ${{ secrets.ALIYUN_SERVER_REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.ALIYUN_SERVER_REMOTE_USER }}
           TARGET: ${{ secrets.ALIYUN_TARGET }}
