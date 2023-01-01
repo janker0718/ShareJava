@@ -181,7 +181,7 @@ module.exports = {
             url: (_, $site, path) => ($site.themeConfig.domain || '') + path,
             image: ($page, $site) => $page.frontmatter.image && (($site.themeConfig.domain && !$page.frontmatter.image.startsWith('http') || '') + $page.frontmatter.image),
             publishedAt: $page => $page.frontmatter.date && new Date($page.frontmatter.date),
-            modifiedAt: $page => $page.lastUpdated && new Date($page.lastUpdated),
+            modifiedAt: $page => $page.lastUpdated,
         }],
     ],
     themeConfig: {
