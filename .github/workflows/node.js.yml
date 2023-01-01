@@ -30,5 +30,16 @@ jobs:
     - name: run deploy.sh # 步骤3
       env: # 设置环境变量
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
-      run: npm install && npm run deploy
+        CI: true
+      run: npm install && npm run build
+    - name: Deploy to aliyun server
+      uses: easingthemes/ssh-deploy@v2.1.5
+      env:
+       SSH_PRIVATE_KEY: ${{ secrets.ALIYUN_SERVER_ACCESS_TOKEN }}
+       ARGS: "-avzr --delete"
+       SOURCE: "build/"
+       REMOTE_HOST: ${{ secrets.ALIYUN_SERVER_HOST }}
+       REMOTE_USER: ${{ secrets.ALIYUN_REMOTE_USER }}
+       TARGET: ${{ secrets.ALIYUN_TARGET }}
+
 
