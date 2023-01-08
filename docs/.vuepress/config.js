@@ -229,6 +229,16 @@ module.exports = {
                         ]
                     },
                     {
+                        text: '日更博文',
+                        link: '/md/tech/2023/01/2023010801.md',
+                        items: [
+                            {
+                                text: '分库分表真的有必要吗？',
+                                link: '/md/tech/2023/01/2023010801.md'
+                            }
+                        ]
+                    },
+                    {
                         text: '关于',
                         link: '/md/about/me/about-me.md'
                     },
@@ -239,6 +249,7 @@ module.exports = {
                 ],
                 sidebar: {
                     "/md/other/": genBarOther(),
+                    "/md/tech/": genTechOther(),
                     "/md/java/interview/":getJavaInterview(),
                     "/md/about/":getBarAbout(),
                     "/md/dev-spec/":getDevSpec(),
@@ -256,6 +267,20 @@ function genBarOther() {
             sidebarDepth: 0,
             children: [
                 "guide-to-reading.md"
+            ]
+        }
+    ]
+}
+
+// 2023 Tech
+function genTechOther() {
+    return [
+        {
+            title: "日更博文",
+            collapsable: false,
+            sidebarDepth: 0,
+            children: [
+                "2023/01/2023010801.md"
             ]
         }
     ]
