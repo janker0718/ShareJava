@@ -1,11 +1,3 @@
----
-layout: post
-category: 关于
-title: 关于文档 - 文档的搭建
-tagline: by janker
-tag: [关于]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
----
 # 关于文档 - 文档的搭建
 
 作者：janker

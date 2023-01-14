@@ -1,12 +1,3 @@
----
-layout: post
-category: 关于
-title: 关于 - 构建自己的知识体系
-tagline: by janker
-tag: [关于]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  by janker
----
-
 # 关于 - 构建自己的知识体系
 
 作者：janker

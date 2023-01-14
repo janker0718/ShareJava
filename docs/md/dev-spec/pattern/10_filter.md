@@ -1,13 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 结构型 - 过滤器模式（Filter Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
----
-
-
 # 结构型 - 过滤器模式（Filter Pattern）
 
 

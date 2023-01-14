@@ -1,13 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 结构型 - 代理模式（Proxy Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
-
-
 # 结构型 -代理模式（Proxy Pattern）
 > 在代理模式（Proxy Pattern）中，一个类代表另一个类的功能。这种类型的设计模式属于结构型模式。
 

@@ -1,12 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 创建型 - 建造者模式（Builder Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
-
 # 创建型 - 建造者模式（`Builder Pattern`）
 
 > 建造者模式（`Builder Pattern`）使用多个简单的对象一步一步构建成一个复杂的对象。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。 

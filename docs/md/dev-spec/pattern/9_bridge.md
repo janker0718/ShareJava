@@ -1,12 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 结构型 - 桥接模式（Bridge Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
-
 # 结构型 - 桥接模式（Bridge Pattern）
 
 > 桥接（Bridge）是用于把抽象化与实现化解耦，使得二者可以独立变化。这种类型的设计模式属于结构型模式，它通过提供抽象化和实现化之间的桥接结构，来实现二者的解耦。

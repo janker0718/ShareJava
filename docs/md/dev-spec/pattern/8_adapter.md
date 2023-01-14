@@ -1,180 +1,331 @@
----
-layout: post
-category: 设计模式
-title: 结构型 - 适配器模式（Adapter Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
-
 # 结构型 - 适配器模式（Adapter Pattern）
+> 在现实生活中，经常出现两个对象因接口不兼容而不能在一起工作的实例，这时需要第三者进行适配。例如，讲中文的人同讲英文的人对话时需要一个翻译，用直流电的笔记本电脑接交流电源时需要一个电源适配器，用计算机访问照相机的 SD 内存卡时需要一个读卡器等。
 
-> 适配器模式（Adapter Pattern）是作为两个不兼容的接口之间的桥梁。这种类型的设计模式属于结构型模式，它结合了两个独立接口的功能。
+> 在软件设计中也可能出现：需要开发的具有某种业务功能的组件在现有的组件库中已经存在，但它们与当前系统的接口规范不兼容，如果重新开发这些组件成本又很高，这时用适配器模式能很好地解决这些问题。
+## 模式的定义与特点
+适配器模式（Adapter）的定义如下：将一个类的接口转换成客户希望的另外一个接口，使得原本由于接口不兼容而不能一起工作的那些类能一起工作。适配器模式分为类结构型模式和对象结构型模式两种，前者类之间的耦合度比后者高，且要求程序员了解现有组件库中的相关组件的内部结构，所以应用相对较少些。
 
-> 这种模式涉及到一个单一的类，该类负责加入独立的或不兼容的接口功能。举个真实的例子，读卡器是作为内存卡和笔记本之间的适配器。您将内存卡插入读卡器，再将读卡器插入笔记本，这样就可以通过笔记本来读取内存卡。
+### 该模式的主要优点如下。
+- 客户端通过适配器可以透明地调用目标接口。
+- 复用了现存的类，程序员不需要修改原有代码而重用现有的适配者类。
+- 将目标类和适配者类解耦，解决了目标类和适配者类接口不一致的问题。
+- 在很多业务场景中符合开闭原则。
 
-> 我们通过下面的实例来演示适配器模式的使用。其中，音频播放器设备只能播放 mp3 文件，通过使用一个更高级的音频播放器来播放 vlc 和 mp4文件。
+### 其缺点是：
+- 适配器编写过程需要结合业务场景全面考虑，可能会增加系统的复杂性。
+- 增加代码阅读难度，降低代码可读性，过多使用适配器会使系统代码变得凌乱。 
+## 模式的结构与实现
+类适配器模式可采用多重继承方式实现，如 C++ 可定义一个适配器类来同时继承当前系统的业务接口和现有组件库中已经存在的组件接口；Java 不支持多继承，但可以定义一个适配器类来实现当前系统的业务接口，同时又继承现有组件库中已经存在的组件。
 
-[[toc]]
+对象适配器模式可釆用将现有组件库中已经实现的组件引入适配器类中，该类同时实现当前系统的业务接口。现在来介绍它们的基本结构。
+### 模式的结构
+适配器模式（Adapter）包含以下主要角色。
+   1. 目标（Target）接口：当前系统业务所期待的接口，它可以是抽象类或接口。
+   2. 适配者（Adaptee）类：它是被访问和适配的现存组件库中的组件接口。
+   3. 适配器（Adapter）类：它是一个转换器，通过继承或引用适配者的对象，把适配者接口转换成目标接口，让客户按目标接口的格式访问适配者。
 
-## 概述
+类适配器模式的结构图如图 1 所示。
+![](https://cdn.jsdelivr.net/gh/janker0718/image_store@master/img/20220420225406.png)
 
-### 意图
-将一个类的接口转换成客户希望的另外一个接口。适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。
+对象适配器模式的结构图如图 2 所示。
+![](https://cdn.jsdelivr.net/gh/janker0718/image_store@master/img/20220420225613.png)
 
-### 解决的问题点
-主要解决在软件系统中，常常要将一些"现存的对象"放到新的环境中，而新环境要求的接口是现对象不能满足的。
+### 模式的实现
 
-### 关键思路
-继承或依赖（推荐）。
-
-适配器继承或依赖已有的对象，实现想要的目标接口。
-### 优缺点
-1. 优点
-- 可以让任何两个没有关联的类一起运行。 
-- 提高了类的复用。
-- 增加了类的透明度。
-- 灵活性好。
-2. 缺点
-- 过多地使用适配器，会让系统非常零乱，不易整体进行把握。比如，明明看到调用的是 A 接口，其实内部被适配成了 B 接口的实现，一个系统如果太多出现这种情况，无异于一场灾难。因此如果不是很有必要，可以不使用适配器，而是直接对系统进行重构。 
-- 由于 JAVA 至多继承一个类，所以至多只能适配一个适配者类，而且目标类必须是抽象类。
-
-
-
-### 使用场景
-有动机地修改一个正常运行的系统的接口，这时应该考虑使用适配器模式。
-
-**何时使用：** 
-1. 系统需要使用现有的类，而此类的接口不符合系统的需要。
-2. 想要建立一个可以重复使用的类，用于与一些彼此之间没有太大关联的一些类，包括一些可能在将来引进的类一起工作，这些源类不一定有一致的接口。
-3. 通过接口转换，将一个类插入另一个类系中。（比如老虎和飞禽，现在多了一个飞虎，在不增加实体的需求下，增加一个适配器，在里面包容一个虎对象，实现飞的接口。）
-
-::: warning
-适配器不是在详细设计时添加的，而是解决正在服役的项目的问题。
-:::
-
-## 实现
-
-我们有一个 `MediaPlayer` 接口和一个实现了 `MediaPlayer` 接口的实体类 `AudioPlayer`。默认情况下，`AudioPlayer` 可以播放 mp3 格式的音频文件。
-
-我们还有另一个接口 `AdvancedMediaPlayer` 和实现了 `AdvancedMediaPlayer` 接口的实体类。该类可以播放 `vlc` 和 `mp4` 格式的文件。
-
-我们想要让 `AudioPlayer` 播放其他格式的音频文件。为了实现这个功能，我们需要创建一个实现了 `MediaPlayer` 接口的适配器类 `MediaAdapter`，并使用 `AdvancedMediaPlayer` 对象来播放所需的格式。
-
-`AudioPlayer` 使用适配器类 `MediaAdapter` 传递所需的音频类型，不需要知道能播放所需格式音频的实际类。`AdapterPatternDemo` 类使用 `AudioPlayer` 类来播放各种格式。
-
-
-![](https://cdn.jsdelivr.net/gh/janker0718/image_store@master/img/20220402003023.png)
-
-### 1. 为媒体播放器和更高级的媒体播放器创建接口。
-```java
-public interface MediaPlayer {
-   public void play(String audioType, String fileName);
-}
-```
-```java
-public interface AdvancedMediaPlayer { 
-   public void playVlc(String fileName);
-   public void playMp4(String fileName);
-}
-```
-### 2. 创建实现了 AdvancedMediaPlayer 接口的实体类。
-```java
-public class VlcPlayer implements AdvancedMediaPlayer{
-   @Override
-   public void playVlc(String fileName) {
-      System.out.println("Playing vlc file. Name: "+ fileName);      
-   }
- 
-   @Override
-   public void playMp4(String fileName) {
-      //什么也不做
-   }
-}
-
-```
+#### 类适配器
+**目标接口**
 
 ```java
-public class Mp4Player implements AdvancedMediaPlayer{
- 
-   @Override
-   public void playVlc(String fileName) {
-      //什么也不做
-   }
- 
-   @Override
-   public void playMp4(String fileName) {
-      System.out.println("Playing mp4 file. Name: "+ fileName);      
-   }
+/**
+ * 目标接口
+ */
+public interface Target {
+    void request();
 }
 ```
 
-### 3. 创建实现了 MediaPlayer 接口的适配器类。
+**适配者**
 ```java
-public class MediaAdapter implements MediaPlayer {
- 
-   AdvancedMediaPlayer advancedMusicPlayer;
- 
-   public MediaAdapter(String audioType){
-      if(audioType.equalsIgnoreCase("vlc") ){
-         advancedMusicPlayer = new VlcPlayer();       
-      } else if (audioType.equalsIgnoreCase("mp4")){
-         advancedMusicPlayer = new Mp4Player();
-      }  
-   }
- 
-   @Override
-   public void play(String audioType, String fileName) {
-      if(audioType.equalsIgnoreCase("vlc")){
-         advancedMusicPlayer.playVlc(fileName);
-      }else if(audioType.equalsIgnoreCase("mp4")){
-         advancedMusicPlayer.playMp4(fileName);
-      }
-   }
+public class Adaptee {
+    public void specificRequest() {
+        System.out.println("适配者中的业务代码被调用！");
+    }
 }
 ```
-### 4. 创建实现了 MediaPlayer 接口的实体类。
+
+**类适配器类**
 ```java
-public class AudioPlayer implements MediaPlayer {
-   MediaAdapter mediaAdapter; 
- 
-   @Override
-   public void play(String audioType, String fileName) {    
- 
-      //播放 mp3 音乐文件的内置支持
-      if(audioType.equalsIgnoreCase("mp3")){
-         System.out.println("Playing mp3 file. Name: "+ fileName);         
-      } 
-      //mediaAdapter 提供了播放其他文件格式的支持
-      else if(audioType.equalsIgnoreCase("vlc") 
-         || audioType.equalsIgnoreCase("mp4")){
-         mediaAdapter = new MediaAdapter(audioType);
-         mediaAdapter.play(audioType, fileName);
-      }
-      else{
-         System.out.println("Invalid media. "+
-            audioType + " format not supported");
-      }
-   }   
+public class ClassAdapter extends Adaptee implements Target {
+    @Override
+    public void request() {
+        System.out.println("类适配器测试！");
+        specificRequest();
+    }
 }
 ```
-### 5. 使用 AudioPlayer 来播放不同类型的音频格式。
+**测试类**
 ```java
-public class AdapterPatternDemo {
-   public static void main(String[] args) {
-      AudioPlayer audioPlayer = new AudioPlayer();
- 
-      audioPlayer.play("mp3", "beyond the horizon.mp3");
-      audioPlayer.play("mp4", "alone.mp4");
-      audioPlayer.play("vlc", "far far away.vlc");
-      audioPlayer.play("avi", "mind me.avi");
-   }
+public class ClassAdapterTest {
+    public static void main(String[] args) {
+        Target target = new ClassAdapter();
+        target.request();
+    }
 }
 ```
-### 6. 执行程序，输出结果
+
+**运行结果：**
 ```shell
-Playing mp3 file. Name: beyond the horizon.mp3
-Playing mp4 file. Name: alone.mp4
-Playing vlc file. Name: far far away.vlc
-Invalid media. avi format not supported
+类适配器测试！
+适配者中的业务代码被调用！
+```
+
+
+#### 对象适配器
+
+对象适配器模式的代码如下。
+
+**对象适配器类**
+```java
+public class ObjectAdapter implements Target {
+
+    private Adaptee adaptee;
+
+    public ObjectAdapter(Adaptee adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    @Override
+    public void request() {
+        System.out.println("对象适配器测试！");
+        adaptee.specificRequest();
+    }
+}
+```
+**对象适配器测试类**
+```java
+public class ObjectAdapterTest {
+
+    public static void main(String[] args) {
+
+        Target target = new ObjectAdapter(new Adaptee());
+        target.request();
+    }
+}
+```
+
+**运行结果:**
+```shell
+对象适配器测试！
+适配者中的业务代码被调用！
+```
+## 模式的应用实例
+【例1】用适配器模式（Adapter）模拟新能源汽车的发动机。
+
+分析：新能源汽车的发动机有电能发动机（Electric Motor）和光能发动机（Optical Motor）等，各种发动机的驱动方法不同，例如，电能发动机的驱动方法 electricDrive() 是用电能驱动，而光能发动机的驱动方法 opticalDrive() 是用光能驱动，它们是适配器模式中被访问的适配者。
+
+客户端希望用统一的发动机驱动方法 drive() 访问这两种发动机，所以必须定义一个统一的目标接口 Motor，然后再定义电能适配器（Electric Adapter）和光能适配器（Optical Adapter）去适配这两种发动机。
+
+我们把客户端想访问的新能源发动机的适配器的名称放在 XML 配置文件中（点此下载 XML 文件），客户端可以通过对象生成器类 ReadXML 去读取。这样，客户端就可以通过 Motor 接口随便使用任意一种新能源发动机去驱动汽车，图 3 所示是其结构图。
+
+![](https://cdn.jsdelivr.net/gh/janker0718/image_store@master/img/20220420232311.png)
+
+程序代码如下：
+
+**发动机接口**
+```java
+public interface Motor {
+    void drive();
+}
+```
+**适配者1：电能发动机**
+```java
+public class ElectricMotor {
+
+    public void electricDrive() {
+        System.out.println("电能发动机驱动汽车！");
+    }
+}
+```
+
+**适配者2：光能发动机**
+```java
+public class OpticalMotor {
+    public void opticalDrive() {
+        System.out.println("光能发动机驱动汽车！");
+    }
+}
+```
+**电能适配器**
+```java
+public class ElectricAdapter implements Motor {
+    private ElectricMotor emotor;
+
+    public ElectricAdapter() {
+        emotor = new ElectricMotor();
+    }
+
+    public void drive() {
+        emotor.electricDrive();
+    }
+}
+```
+
+**光能适配器**
+```java
+public class OpticalAdapter implements Motor {
+    private OpticalMotor omotor;
+
+    public OpticalAdapter() {
+        omotor = new OpticalMotor();
+    }
+
+    public void drive() {
+        omotor.opticalDrive();
+    }
+}
+```
+**读取XML**
+```java
+public class ReadXML {
+    public static Object getObject() {
+        try {
+            DocumentBuilderFactory dFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = dFactory.newDocumentBuilder();
+            Document doc;
+            doc = builder.parse(new File("07-design-pattern-adapter/src/main/resources/config.xml"));
+            NodeList nl = doc.getElementsByTagName("className");
+            Node classNode = nl.item(0).getFirstChild();
+            String cName = "top.janker.pattern.adapter.motor." + classNode.getNodeValue();
+            Class<?> c = Class.forName(cName);
+            Object obj = c.newInstance();
+            return obj;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+}
+```
+**发动机测试类**
+
+```java
+public class MotorAdapterTest {
+    public static void main(String[] args)
+    {
+        System.out.println("适配器模式测试：");
+        Motor motor=(Motor)ReadXML.getObject();
+        motor.drive();
+    }
+}
+```
+**运行结果**
+```shell
+适配器模式测试：
+电能发动机驱动汽车！
+```
+注意：如果将配置文件中的 ElectricAdapter 改为 OpticalAdapter，则运行结果如下：
+
+```shell
+适配器模式测试：
+光能发动机驱动汽车！
+```
+## 模式的应用场景
+
+适配器模式（Adapter）通常适用于以下场景。
+- 以前开发的系统存在满足新系统功能需求的类，但其接口同新系统的接口不一致。
+- 使用第三方提供的组件，但组件接口定义和自己要求的接口定义不同。
+
+
+## 模式的扩展
+适配器模式（Adapter）可扩展为双向适配器模式，双向适配器类既可以把适配者接口转换成目标接口，也可以把目标接口转换成适配者接口，其结构图如图 4 所示。
+
+![](https://cdn.jsdelivr.net/gh/janker0718/image_store@master/img/20220421000318.png)
+
+**目标接口**
+```java
+public interface TwoWayTarget {
+    void request();
+}
+```
+
+**适配者接口**
+```java
+public interface TwoWayAdaptee {
+        void specificRequest();
+}
+```
+**目标实现**
+```java
+public class TargetRealize implements TwoWayTarget {
+    public void request() {
+        System.out.println("目标代码被调用！");
+    }
+}
+```
+**适配者实现**
+
+```java
+/**
+ * 适配者实现
+ * @author janker
+ * @date 2022/4/21
+ * <p>
+ * Blog: https://www.share-java.com
+ * Github: https://github.com/janker0718
+ */
+public class AdapteeRealize implements  TwoWayAdaptee{
+    @Override
+    public void specificRequest() {
+        System.out.println("适配者代码被调用！");
+    }
+}
+```
+**双向适配器**
+```java
+public class TwoWayAdapter implements TwoWayTarget, TwoWayAdaptee {
+    private TwoWayTarget target;
+    private TwoWayAdaptee adaptee;
+
+    public TwoWayAdapter(TwoWayTarget target) {
+        this.target = target;
+    }
+
+    public TwoWayAdapter(TwoWayAdaptee adaptee) {
+        this.adaptee = adaptee;
+    }
+
+    @Override
+    public void request() {
+        adaptee.specificRequest();
+    }
+
+    @Override
+    public void specificRequest() {
+        target.request();
+    }
+}
+```
+**客户端代码**
+```java
+public class TwoWayAdapterTest {
+    public static void main(String[] args) {
+        System.out.println("目标通过双向适配器访问适配者：");
+        TwoWayAdaptee adaptee = new AdapteeRealize();
+        TwoWayTarget target = new TwoWayAdapter(adaptee);
+        target.request();
+        System.out.println("-------------------");
+        System.out.println("适配者通过双向适配器访问目标：");
+        target = new TargetRealize();
+        adaptee = new TwoWayAdapter(target);
+        adaptee.specificRequest();
+    }
+}
+```
+**运行结果**
+```shell
+目标通过双向适配器访问适配者：
+适配者代码被调用！
+-------------------
+适配者通过双向适配器访问目标：
+目标代码被调用！
 ```

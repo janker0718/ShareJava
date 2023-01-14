@@ -1,11 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 行为型 - 责任链模式（`Chain of Responsibility Pattern`）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
 #  行为型 - 解释器模式（Interpreter Pattern）
 
 > 解释器模式（`Interpreter Pattern`）提供了评估语言的语法或表达式的方式，它属于行为型模式。这种模式实现了一个表达式接口，该接口解释一个特定的上下文。这种模式被用在 SQL 解析、符号处理引擎等。

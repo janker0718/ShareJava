@@ -1,11 +1,3 @@
----
-layout: post
-category: 设计模式
-title: J2EE型 - 前端控制器模式（Front Controller Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
----
 # J2EE型 - 前端控制器模式（Front Controller Pattern）
 > 前端控制器模式（`Front Controller Pattern`）是用来提供一个集中的请求处理机制，所有的请求都将由一个单一的处理程序处理。该处理程序可以做认证/授权/记录日志，或者跟踪请求，然后把请求传给相应的处理程序。以下是这种设计模式的实体。
 

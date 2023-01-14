@@ -1,12 +1,3 @@
----
-layout: post
-category: Java基础
-title: 基础技术
-tagline: by janker
-tag: [java] 
-excerpt: xxxxxx
----
-
 
 # 基础技术
 

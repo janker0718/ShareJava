@@ -1,8 +1,11 @@
 ---
 home: true
 heroImage: https://cdn.jsdelivr.net/gh/janker0718/image_store@master/img/20220328012329.png
-actionText: 快速开始 →
-actionLink: /md/other/guide-to-reading.md
+heroText: 爪哇干货分享
+actions:
+ - text: 快速开始 → 🧭
+   link: /md/other/guide-to-reading.md
+   type: primary
 features:
 - title: 构建知识体系
   details: 构建系统的知识体系，让自己更全面

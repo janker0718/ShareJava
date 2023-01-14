@@ -1,13 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 结构型 - 组合模式（Composite Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
----
-
-
 # 结构型 - 组合模式（Composite Pattern）
 
 > 组合模式（`Composite Pattern`），又叫部分整体模式，是用于把一组相似的对象当作一个单一的对象。组合模式依据树形结构来组合对象，用来表示部分以及整体层次。这种类型的设计模式属于结构型模式，它创建了对象组的树形结构。
