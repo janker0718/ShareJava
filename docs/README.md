@@ -1,4 +1,8 @@
 ---
+head:
+  - - meta
+    - name: Java分享
+      content: 爪哇干货分享，包含Spring原理，Java基础，中间件原理等
 home: true
 heroImage: https://cdn.jsdelivr.net/gh/janker0718/image_store@master/img/20220328012329.png
 heroText: 爪哇干货分享
