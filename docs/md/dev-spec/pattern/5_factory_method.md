@@ -1,16 +1,7 @@
----
-layout: post
-category: 设计模式
-title: 创建型 - 工厂方法模式（`Factory Method Pattern`）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
-
 # 创建型 - 工厂方法模式（Factory Method Pattern）
 
 
-> 在[《工厂模式》](/md/dev-spec/pattern/5_factory-method.md)中我们介绍了工厂模式，提到了简单工厂模式违背了开闭原则，而“工厂方法模式”是对简单工厂模式的进一步抽象化，其好处是可以使系统在不修改原来代码的情况下引进新的产品，即满足开闭原则。
+> 在[《工厂模式》](/md/dev-spec/pattern/5_factory_method.md)中我们介绍了工厂模式，提到了简单工厂模式违背了开闭原则，而“工厂方法模式”是对简单工厂模式的进一步抽象化，其好处是可以使系统在不修改原来代码的情况下引进新的产品，即满足开闭原则。
 
 [[toc]]
 

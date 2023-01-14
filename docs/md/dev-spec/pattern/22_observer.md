@@ -1,11 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 行为型 - 观察者模式（Observer Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
 # 行为型 - 观察者模式（Observer Pattern）
 > 当对象间存在一对多关系时，则使用观察者模式（Observer Pattern）。比如，当一个对象被修改时，则会自动通知依赖它的对象。观察者模式属于行为型模式。
 

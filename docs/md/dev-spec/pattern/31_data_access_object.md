@@ -1,11 +1,3 @@
----
-layout: post
-category: 设计模式
-title: J2EE型 - 数据访问对象模式（Data Access Object Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
----
 # J2EE型 - 数据访问对象模式（Data Access Object Pattern）
 > 数据访问对象模式（`Data Access Object Pattern`）或 DAO 模式用于把低级的数据访问 API 或操作从高级的业务服务中分离出来。以下是数据访问对象模式的参与者。
 

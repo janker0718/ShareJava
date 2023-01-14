@@ -1,12 +1,4 @@
----
-layout: post
-category: 设计模式
-title: J2EE型 - 组合实体模式（Composite Entity Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
----
-## J2EE型 - 组合实体模式
+# J2EE型 - 组合实体模式
 > 组合实体模式（`Composite Entity Pattern`）用在 `EJB` 持久化机制中。一个组合实体是一个 `EJB` 实体 `bean`，代表了对象的图解。当更新一个组合实体时，内部依赖对象 `beans` 会自动更新，因为它们是由 `EJB` 实体 `bean` 管理的。以下是组合实体 `bean` 的参与者。
 
 - 组合实体（`Composite Entity`） - 它是主要的实体 `bean`。它可以是粗粒的，或者可以包含一个粗粒度对象，用于持续生命周期。

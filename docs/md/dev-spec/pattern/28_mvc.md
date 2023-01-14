@@ -1,11 +1,3 @@
----
-layout: post
-category: 设计模式
-title: J2EE型 - MVC 模式
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
 # J2EE型 - MVC 模式
 > MVC 模式代表 Model-View-Controller（模型-视图-控制器） 模式。这种模式用于应用程序的分层开发。
 

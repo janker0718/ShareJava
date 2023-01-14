@@ -1,12 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 创建型 - 单例模式（`Singleton Pattern`）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
-
 # 创建型 - 单例模式（Singleton Pattern）
 
 

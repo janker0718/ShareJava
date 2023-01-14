@@ -1,12 +1,3 @@
----
-layout: post
-category: 导读
-title: 导读
-tagline: by janker
-tag: [java]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
----
-
 # 阅读指南
 
 ::: tip To 我

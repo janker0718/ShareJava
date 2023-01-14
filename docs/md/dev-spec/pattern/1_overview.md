@@ -1,10 +1,12 @@
 ---
-layout: post
-category: 设计模式
-title: 设计模式 - 概述
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
+category:
+  - 设计模式
+title: 设计模式 - 概述 
+author: Janker
+isOriginal: true
+tag: 
+  - 设计模式
+
 --- 
 
 # 设计模式 - 概述

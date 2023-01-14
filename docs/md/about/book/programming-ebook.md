@@ -1,12 +1,3 @@
----
-layout: post
-category: 关于
-title: EBook - Github(免费编程书籍)
-tagline: by janker
-tag: [关于]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
----
-
 # EBook - Github(免费编程书籍)
 > 本文引自 `https://github.com/EbookFoundation/free-programming-books/blob/main/books/free-programming-books-zh.md`   @janker
 

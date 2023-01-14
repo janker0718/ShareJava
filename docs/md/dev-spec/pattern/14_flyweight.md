@@ -1,12 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 结构型 - 享元模式（Flyweight Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
----
-
 # 结构型 -享元模式（Flyweight Pattern）
 > 享元模式（Flyweight Pattern）主要用于减少创建对象的数量，以减少内存占用和提高性能。这种类型的设计模式属于结构型模式，它提供了减少对象数量从而改善应用所需的对象结构的方式。
 

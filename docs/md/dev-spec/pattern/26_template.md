@@ -1,11 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 行为型 - 模板模式（Template Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
 # 行为型 - 模板模式（Template Pattern）
 > 在模板模式（Template Pattern）中，一个抽象类公开定义了执行它的方法的方式/模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。这种类型的设计模式属于行为型模式。
 

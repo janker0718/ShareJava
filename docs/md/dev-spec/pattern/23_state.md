@@ -1,11 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 行为型 - 状态模式（State Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
 # 行为型 - 状态模式（State Pattern） 
 > 在状态模式（State Pattern）中，类的行为是基于它的状态改变的。这种类型的设计模式属于行为型模式。
 

@@ -1,12 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 行为型- 责任链模式（`Chain of Responsibility Pattern`）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
-
 # 行为型- 责任链模式（Chain of Responsibility Pattern）
 
 > 顾名思义，责任链模式（Chain of Responsibility Pattern）为请求创建了一个接收者对象的链。这种模式给予请求的类型，对请求的发送者和接收者进行解耦。这种类型的设计模式属于行为型模式。

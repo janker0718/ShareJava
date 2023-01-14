@@ -1,11 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 行为型 - 策略模式（Strategy Pattern）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
 # 行为型 - 策略模式（Strategy Pattern）
 > 在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为型模式。
 

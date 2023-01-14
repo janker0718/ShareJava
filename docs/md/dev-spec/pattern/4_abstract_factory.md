@@ -1,12 +1,3 @@
----
-layout: post
-category: 设计模式
-title: 创建型 - 抽象工厂模式（`Abstract Factory Pattern`）
-tagline: by janker
-tag: [设计模式]
-excerpt: 知其然，知其所以然，忙时做业绩，闲时修内功。  @janker
---- 
-
 # 创建型 - 抽象工厂模式（Abstract Factory Pattern）
 
 > 抽象工厂模式（Abstract Factory Pattern）是围绕一个超级工厂创建其他工厂。该超级工厂又称为其他工厂的工厂。这种类型的设计模式属于创建型模式，它提供了一种创建对象的最佳方式。

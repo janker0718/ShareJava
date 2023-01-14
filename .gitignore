@@ -19,3 +19,5 @@ urls.txt
 
 .idea
 /.dist/
+/docs/.vuepress/.cache/
+/docs/.vuepress/.temp/

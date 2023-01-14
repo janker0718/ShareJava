@@ -1,12 +1,3 @@
----
-layout: post
-category: 关于
-title: 关于 - 计划
-tagline: by janker
-tag: [关于]
-excerpt: 无计划不成体系，零散的知识点不足以支撑我们走的更远。
----
-
 # 关于 - 计划
 作者：janker
 <br/>博客：[https://www.share-java.com](https://www.share-java.com)
