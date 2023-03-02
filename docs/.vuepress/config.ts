@@ -88,7 +88,7 @@ export default defineUserConfig({
           title:"目录"
         }
       },
-      level: 2,
+      level: 3,
     }),
   ]
 });
