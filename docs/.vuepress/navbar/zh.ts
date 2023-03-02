@@ -41,7 +41,7 @@ export const zhNavbar = navbar([
       {
         text: "SpringBoot",
         icon: "creative",
-        children: [{ text: "官方指南 3.0.2", icon: "info", link: "md/framework/springboot/3.0.2/reference/index.md" }],
+        children: [{ text: "官方指南 3.0.2", icon: "info", link: "/md/framework/springboot/3.0.2/reference/index.md" }],
       }
     ],
   },
