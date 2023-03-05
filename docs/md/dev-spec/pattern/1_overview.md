@@ -1,6 +1,4 @@
 ---
-category:
-  - 设计模式
 title: 设计模式 - 概述 
 author: Janker
 isOriginal: true
