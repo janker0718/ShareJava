@@ -61,7 +61,7 @@ export default hopeTheme({
         "AudioPlayer",
         "Badge",
         "BiliBili",
-        "Catalog",
+        "AutoCatalog",
         "CodePen",
         "PDF",
         "StackBlitz",
