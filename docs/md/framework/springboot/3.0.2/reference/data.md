@@ -1882,11 +1882,464 @@ spring:
 
 ### 2.5 Cassandra
 
+[Cassandra](https://cassandra.apache.org/) 是一种开源的分布式数据库管理系统，旨在处理许多商用服务器上的大量数据。 Spring Boot 为 Cassandra 和 [Spring Data Cassandra](https://github.com/spring-projects/spring-data-cassandra) 提供的抽象提供了自动配置。 有一个 `spring-boot-starter-data-cassandra` “Starter” 用于以方便的方式收集依赖项。
+
+#### 2.5.1 连接到 Cassandra
+
+您可以像注入任何其他 Spring Bean 一样注入自动配置的 `CassandraTemplate` 或 Cassandra CqlSession 实例。 `spring.cassandra.*` 属性可用于自定义连接。 通常，您提供键空间名称和联系点以及本地数据中心名称，如以下示例所示：
+
+::: code-tabs#language
+@tab Properties
+
+```properties
+spring.cassandra.keyspace-name=mykeyspace
+spring.cassandra.contact-points=cassandrahost1:9042,cassandrahost2:9042
+spring.cassandra.local-datacenter=datacenter1
+```
+
+@tab Yaml
+
+```yaml
+spring:
+  cassandra:
+    keyspace-name: "mykeyspace"
+    contact-points: "cassandrahost1:9042,cassandrahost2:9042"
+    local-datacenter: "datacenter1"
+```
+
+:::
+
+如果所有联系点的端口都相同，您可以使用快捷方式并仅指定主机名，如以下示例所示：
+
+::: code-tabs#language
+@tab Properties
+
+```properties
+spring.cassandra.keyspace-name=mykeyspace
+spring.cassandra.contact-points=cassandrahost1,cassandrahost2
+spring.cassandra.local-datacenter=datacenter1
+```
+
+@tab Yaml
+
+```yaml
+spring:
+  cassandra:
+    keyspace-name: "mykeyspace"
+    contact-points: "cassandrahost1,cassandrahost2"
+    local-datacenter: "datacenter1"
+```
+
+:::
+
+::: tip 提示
+
+这两个示例相同，因为端口默认为 `9042`。如果需要配置端口，请使用 `spring.cassandra.port`。
+
+:::
+
+::: info 注意
+
+Cassandra 驱动程序有自己的配置基础结构，可在类路径的根目录加载 application.conf。
+
+默认情况下，Spring Boot 不会查找此类文件，但可以使用 `spring.cassandra.config` 加载一个文件。 如果一个属性同时存在于 `spring.cassandra.*` 和配置文件中，则 `spring.cassandra.*` 中的值优先。 
+
+对于更高级的驱动程序自定义，您可以注册任意数量的实现 `DriverConfigLoaderBuilderCustomizer` 的 bean。 可以使用 `CqlSessionBuilderCustomizer` 类型的 bean 自定义 CqlSession。
+
+:::
+
+::: info 注意
+
+如果您使用 `CqlSessionBuilder` 创建多个 `CqlSession` beans，请记住构建器是可变的，因此请确保为每个会话注入一个新副本。
+
+:::
+
+以下代码清单显示了如何注入 Cassandra bean：
+
+::: code-tabs#language
+@tab Java
+
+```java
+import org.springframework.data.cassandra.core.CassandraTemplate;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyBean {
+
+    private final CassandraTemplate template;
+
+    public MyBean(CassandraTemplate template) {
+        this.template = template;
+    }
+
+    public long someMethod() {
+        return this.template.count(User.class);
+    }
+
+}
+```
+
+@tab kotlin
+
+```kotlin
+import org.springframework.data.cassandra.core.CassandraTemplate
+import org.springframework.stereotype.Component
+
+@Component
+class MyBean(private val template: CassandraTemplate) {
+
+    fun someMethod(): Long {
+        return template.count(User::class.java)
+    }
+
+}
+```
+
+:::
+
+如果您添加自己的 `CassandraTemplate` 类型的 @Bean，它将替换默认值。
+
+#### 2.5.2 Spring Data Cassandra 存储库
+
+Spring Data 包括对 Cassandra 的基本存储库支持。 目前，这比前面讨论的 JPA 存储库更受限制，并且需要 @Query 注释的查找器方法。
+
+::: tip 提示
+
+有关 Spring Data Cassandra 的完整详细信息，请参阅 [参考文档](https://docs.spring.io/spring-data/cassandra/docs/)。
+
+:::
+
+
+
+
+
 ### 2.6 Couchbase
+
+[Couchbase](https://www.couchbase.com/) 是一个开源、分布式、多模型的 NoSQL 面向文档的数据库，针对交互式应用程序进行了优化。 `Spring Boot` 为 `Couchbase` 和 [Spring Data Couchbase](https://github.com/spring-projects/spring-data-couchbase) 提供的抽象提供了自动配置。 有 `spring-boot-starter-data-couchbase` 和 `spring-boot-starter-data-couchbase-reactive` “Starters”，用于以方便的方式收集依赖项。
+
+#### 2.6.1 连接到 Couchbase
+
+您可以通过添加 Couchbase SDK 和一些配置来获得集群。 `spring.couchbase.*` 属性可用于自定义连接。 通常，您提供[连接字符串](https://github.com/couchbaselabs/sdk-rfcs/blob/master/rfc/0011-connection-string.md)、用户名和密码，如以下示例所示：
+
+::: code-tabs#language
+@tab Properties
+
+```properties
+spring.couchbase.connection-string=couchbase://192.168.1.123
+spring.couchbase.username=user
+spring.couchbase.password=secret
+```
+
+@tab Yaml
+
+```yaml
+spring:
+  couchbase:
+    connection-string: "couchbase://192.168.1.123"
+    username: "user"
+    password: "secret"
+```
+
+:::
+
+也可以自定义一些 `ClusterEnvironment` 设置。 例如，以下配置更改了打开新 `Bucket` 的超时时间并启用了 SSL 支持：
+
+::: code-tabs#language
+@tab Properties
+
+```properties
+spring.couchbase.env.timeouts.connect=3s
+spring.couchbase.env.ssl.key-store=/location/of/keystore.jks
+spring.couchbase.env.ssl.key-store-password=secret
+```
+
+@tab Yaml
+
+```yaml
+spring:
+  couchbase:
+    env:
+      timeouts:
+        connect: "3s"
+      ssl:
+        key-store: "/location/of/keystore.jks"
+        key-store-password: "secret"
+```
+
+:::
+
+::: tip 提示
+
+检查 `spring.couchbase.env.*` 属性以获取更多详细信息。 要获得更多控制，可以使用一个或多个 `ClusterEnvironmentBuilderCustomizer` bean。
+
+:::
+
+#### 2.6.2 Spring Data Couchbase 存储库
+
+Spring Data 包括对 Couchbase 的存储库支持。 有关 Spring Data Couchbase 的完整详细信息，请参阅[参考文档](https://docs.spring.io/spring-data/couchbase/docs/5.0.3/reference/html/)。
+
+如果 `CouchbaseClientFactory` bean 可用，您可以像注入任何其他 Spring Bean 一样注入自动配置的 `CouchbaseTemplate` 实例。 如上所述，当集群可用时会发生这种情况，并且已指定存储桶名称：
+
+::: code-tabs#language
+@tab Properties
+
+```properties
+spring.data.couchbase.bucket-name=my-bucket
+```
+
+@tab Yaml
+
+```yaml
+spring:
+  data:
+    couchbase:
+      bucket-name: "my-bucket"
+```
+
+:::
+
+以下示例显示了如何注入 CouchbaseTemplate bean：
+
+::: code-tabs#language
+@tab Java
+
+```java
+import org.springframework.data.couchbase.core.CouchbaseTemplate;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyBean {
+
+    private final CouchbaseTemplate template;
+
+    public MyBean(CouchbaseTemplate template) {
+        this.template = template;
+    }
+
+    public String someMethod() {
+        return this.template.getBucketName();
+    }
+
+}
+```
+
+@tab Kotlin
+
+```kotlin
+import org.springframework.data.couchbase.core.CouchbaseTemplate
+import org.springframework.stereotype.Component
+
+@Component
+class MyBean(private val template: CouchbaseTemplate) {
+
+    fun someMethod(): String {
+        return template.bucketName
+    }
+
+}
+```
+
+:::
+
+您可以在自己的配置中定义一些 bean 来覆盖自动配置提供的那些 bean：
+
+- 名称为 `couchbaseMappingContext` 的 `CouchbaseMappingContext` @Bean。 
+- 一个名为 `couchbaseCustomConversions` 的 `CustomConversions` @Bean。 
+- 一个名为 `couchbaseTemplate` 的 `CouchbaseTemplate` @Bean。
+
+为了避免在您自己的配置中对这些名称进行硬编码，您可以重用 `Spring Data Couchbase` 提供的 `BeanNames`。 例如，您可以自定义要使用的转换器，如下所示：
+
+::: code-tabs#language
+@tab Java
+
+```java
+import org.assertj.core.util.Arrays;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.couchbase.config.BeanNames;
+import org.springframework.data.couchbase.core.convert.CouchbaseCustomConversions;
+
+@Configuration(proxyBeanMethods = false)
+public class MyCouchbaseConfiguration {
+
+    @Bean(BeanNames.COUCHBASE_CUSTOM_CONVERSIONS)
+    public CouchbaseCustomConversions myCustomConversions() {
+        return new CouchbaseCustomConversions(Arrays.asList(new MyConverter()));
+    }
+
+}
+```
+
+@tab Kotlin
+
+```kotlin
+import org.assertj.core.util.Arrays
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.data.couchbase.config.BeanNames
+import org.springframework.data.couchbase.core.convert.CouchbaseCustomConversions
+
+@Configuration(proxyBeanMethods = false)
+class MyCouchbaseConfiguration {
+
+    @Bean(BeanNames.COUCHBASE_CUSTOM_CONVERSIONS)
+    fun myCustomConversions(): CouchbaseCustomConversions {
+        return CouchbaseCustomConversions(Arrays.asList(MyConverter()))
+    }
+
+}
+```
+
+:::
+
+
 
 ### 2.7 LDAP
 
+[LDAP](https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol)（轻量级目录访问协议）是一种开放的、供应商中立的行业标准应用协议，用于通过 IP 网络访问和维护分布式目录信息服务。 Spring Boot 为任何兼容的 LDAP 服务器提供自动配置，并支持来自 [UnboundID](https://ldap.com/unboundid-ldap-sdk-for-java/) 的嵌入式内存中 LDAP 服务器。
+
+LDAP 抽象由 [Spring Data LDAP](https://github.com/spring-projects/spring-data-ldap) 提供。 有一个 spring-boot-starter-data-ldap “Starter” 用于以方便的方式收集依赖项。
+
+#### 2.7.1 连接到 LDAP 服务器
+
+要连接到 LDAP 服务器，请确保声明对 `spring-boot-starter-data-ldap`“Starter”或 spring-ldap-core 的依赖，然后在 `application.properties` 中声明服务器的 URL，如中所示 下面的例子
+
+::: code-tabs#language
+@tab Properties
+
+```properties
+spring.ldap.urls=ldap://myserver:1235
+spring.ldap.username=admin
+spring.ldap.password=secret
+```
+
+@tab Yaml
+
+```yaml
+spring:
+  ldap:
+    urls: "ldap://myserver:1235"
+    username: "admin"
+    password: "secret"
+```
+
+:::
+
+如果需要自定义连接设置，可以使用 `spring.ldap.base` 和 `spring.ldap.base-environment` 属性。 
+
+`LdapContextSource` 是根据这些设置自动配置的。 如果 `DirContextAuthenticationStrategy` bean 可用，它会关联到自动配置的 `LdapContextSource`。 如果您需要自定义它，例如使用 `PooledContextSource`，您仍然可以注入自动配置的 `LdapContextSource`。 确保将自定义的 `ContextSource` 标记为 `@Primary`，以便自动配置的 `LdapTemplate` 使用它。
+
+#### 2.7.2 Spring Data LDAP 存储库
+
+Spring Data 包括对 LDAP 的存储库支持。 有关 Spring Data LDAP 的完整详细信息，请参阅[参考文档](https://docs.spring.io/spring-data/ldap/docs/1.0.x/reference/html/)。
+
+您还可以像注入任何其他 Spring Bean 一样注入自动配置的 LdapTemplate 实例，如以下示例所示：
+
+::: code-tabs#language
+@tab Java
+
+```java
+import java.util.List;
+
+import org.springframework.ldap.core.LdapTemplate;
+import org.springframework.stereotype.Component;
+
+@Component
+public class MyBean {
+
+    private final LdapTemplate template;
+
+    public MyBean(LdapTemplate template) {
+        this.template = template;
+    }
+
+    public List<User> someMethod() {
+        return this.template.findAll(User.class);
+    }
+
+}
+```
+
+@tab Kotlin
+
+```kotlin
+import org.springframework.ldap.core.LdapTemplate
+import org.springframework.stereotype.Component
+
+@Component
+class MyBean(private val template: LdapTemplate) {
+
+    fun someMethod(): List<User> {
+        return template.findAll(User::class.java)
+    }
+
+}
+```
+
+:::
+
+#### 2.7.3 嵌入式内存 LDAP 服务器
+
+出于测试目的，Spring Boot 支持从 [`UnboundID`](https://ldap.com/unboundid-ldap-sdk-for-java/) 自动配置内存中的 LDAP 服务器。 要配置服务器，请将依赖项添加到 `com.unboundid:unboundid-ldapsdk` 并声明一个 `spring.ldap.embedded.base-dn` 属性，如下所示：
+
+::: code-tabs#language
+@tab Properties
+
+```properties
+spring.ldap.embedded.base-dn=dc=spring,dc=io
+```
+
+@tab Yaml
+
+```yaml
+spring:
+  ldap:
+    embedded:
+      base-dn: "dc=spring,dc=io"
+```
+
+:::
+
+::: info 注意
+
+可以定义多个 base-dn 值，但是，由于可分辨名称通常包含逗号，因此必须使用正确的符号来定义它们。 
+
+在 yaml 文件中，您可以使用 yaml 列表表示法。 在属性文件中，您必须将索引作为属性名称的一部分包含在内：
+
+::: code-tabs#language
+@tab Properties
+
+```properties
+spring.ldap.embedded.base-dn[0]=dc=spring,dc=io
+spring.ldap.embedded.base-dn[1]=dc=vmware,dc=com
+```
+
+@tab Yaml
+
+```yaml
+spring.ldap.embedded.base-dn:
+  - "dc=spring,dc=io"
+  - "dc=vmware,dc=com"
+```
+
+:::
+
+:::
+
+默认情况下，服务器在随机端口上启动并触发常规 LDAP 支持。 无需指定 `spring.ldap.urls` 属性。 
+
+如果类路径中有 `schema.ldif` 文件，它用于初始化服务器。 如果你想从不同的资源加载初始化脚本，你也可以使用 `spring.ldap.embedded.ldif` 属性。 
+
+默认情况下，标准架构用于验证 LDIF 文件。 您可以通过设置 `spring.ldap.embedded.validation.enabled` 属性来完全关闭验证。 如果您有自定义属性，您可以使用 `spring.ldap.embedded.validation.schema` 来定义您的自定义属性类型或对象类。
+
+
+
 ### 2.8 InfluxDB
+
+[InfluxDB](https://www.influxdata.com/) 是一个开源时间序列数据库，针对运营监控、应用程序指标、物联网传感器数据和实时分析等领域的时间序列数据的快速、高可用性存储和检索进行了优化。
+
+#### 2.8.1 连接到 InfluxDB
 
 Spring Boot 自动配置一个 InfluxDB 实例，前提是 influxdb-java 客户端在类路径上并且设置了数据库的 URL，如以下示例所示：
 
