@@ -8,8 +8,7 @@
     "docs:dev": "vuepress-vite dev docs",
     "webpack-build": "vuepress-webpack build docs",
     "webpack-clean-serve": "vuepress-webpack dev docs --clean-cache",
-    "webpack-serve": "vuepress-webpack dev docs",
-    "prebuild": "npm rebuild vuepress-theme-hope"
+    "webpack-serve": "vuepress-webpack dev docs"
   },
   "dependencies": {
     "@vuepress/client": "2.0.0-beta.61",
