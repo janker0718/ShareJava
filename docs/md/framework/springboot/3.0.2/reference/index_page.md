@@ -19,8 +19,8 @@
 | [核心功能](./features.md)              | 配置文件、日志记录、国际化、任务执行和调度、测试等。         |
 | [Web 开发](./web.md)                 | Servlet Web、反应式Web、嵌入式容器支持、优雅关闭等等。       |
 | [数据](./data.md)                    | SQL 和 NoSQL 数据访问。                                      |
-| IO                                 | 缓存、Quartz Scheduler、REST客户端、发送电子邮件、Spring Web Services 等。 |
-| 消息                                 | JMS、AMQP、Apache Kafka、RSocket、WebSocket和Spring集成。    |
+| [IO](./io.md)                      | 缓存、Quartz Scheduler、REST客户端、发送电子邮件、Spring Web Services 等。 |
+| [消息](./messaging.md)               | JMS、AMQP、Apache Kafka、RSocket、WebSocket和Spring集成。    |
 | 容器镜像                               | 高效的容器镜像和使用 Dockerfile 和 Cloud Native Buildpacks 构建容器镜像。 |
 | 生产准备就绪功能                           | 监控、度量、审计等。                                         |
 | 发布 Spring Boot 应用                  | 部署到云，并作为Unix应用程序安装。                           |
