@@ -7,7 +7,7 @@ export default defineUserConfig({
   base: "/",
   dest: "docs/.vuepress/.dist",
   title: "爪哇干货分享",
-  description: "包含: Java 基础，面试小册，Spring源码解析，中间件原理",
+  description: "爪哇岛相关内容",
   head: [
     // meta
     ["meta", { name: "robots", content: "all" }],
